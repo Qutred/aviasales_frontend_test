@@ -1,0 +1,30 @@
+@import './../../assets/scss/colors';
+
+body {
+  background-color: $catskill-white;
+}
+
+.filterContainer {
+  max-width: 755px;
+  width: 100%;
+  margin: 30px auto 0 auto;
+  display: grid;
+  grid-template-columns: 232px 1fr;
+  grid-gap: 20px;
+  align-items: start;
+
+  &__title {
+    color: $tundora;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 42px;
+  }
+}

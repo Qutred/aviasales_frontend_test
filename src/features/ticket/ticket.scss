@@ -1,0 +1,63 @@
+@import './../../assets/scss/colors';
+
+/* ------------------------------- Ticket Item ------------------------------ */
+
+.ticketItem {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 20px;
+  background: $white;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 26px 20px;
+  color: $tundora;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 26px;
+  }
+
+  &__smallDesk {
+    display: flex;
+    width: 100%;
+    &:not(:first-of-type) {
+      margin-top: 10px;
+    }
+  }
+
+  &__column {
+    flex: 1 1 33.333%;
+    padding-right: 10px;
+  }
+
+  &__price {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $dodger-blue;
+    line-height: 1.5rem;
+  }
+
+  &__logo {
+    max-width: 99px;
+    object-fit: contain;
+  }
+
+  &__smallTitle {
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    color: $gull-gray;
+    text-transform: uppercase;
+  }
+
+  &__detail {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    font-weight: 600;
+  }
+}
