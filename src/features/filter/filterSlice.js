@@ -4,29 +4,29 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const filterTypes = [
   {
-    id: 1,
+    id: -1,
     name: 'Все',
-    checked: false,
+    checked: true,
+  },
+  {
+    id: 0,
+    name: 'Без пересадок',
+    checked: true,
+  },
+  {
+    id: 1,
+    name: '1 пересадка',
+    checked: true,
   },
   {
     id: 2,
-    name: 'Без пересадок',
-    checked: false,
+    name: '2 пересадки',
+    checked: true,
   },
   {
     id: 3,
-    name: '1 пересадка',
-    checked: false,
-  },
-  {
-    id: 4,
-    name: '2 пересадки',
-    checked: false,
-  },
-  {
-    id: 5,
     name: '3 пересадки',
-    checked: false,
+    checked: true,
   },
 ];
 
@@ -43,12 +43,28 @@ export const filterSlice = createSlice({
   initialState,
   reducers: {
     toggleFilterType: (state, action) => {
-      state.filterTypes.map((type) => {
-        if (type.id === action.payload) {
-          type.checked = !type.checked;
-        }
-        return type;
-      });
+      const activeFilter = action.payload;
+      if (activeFilter === -1 && state.filterTypes[0].checked) {
+        state.filterTypes.map((type) => {
+          type.checked = false;
+          return type;
+        });
+      } else if (activeFilter === -1 && !state.filterTypes[0].checked) {
+        state.filterTypes.map((type) => {
+          type.checked = true;
+          return type;
+        });
+      } else {
+        state.filterTypes.map((type, index, array) => {
+          if (index === 0) {
+            type.checked = false;
+          }
+          if (type.id === action.payload) {
+            type.checked = !type.checked;
+          }
+          return type;
+        });
+      }
     },
   },
 });

@@ -22,7 +22,6 @@ const Sorting = () => {
               sorting__item_active: sortBy === sType.sortBy,
             })}
             onClick={(e) => {
-              console.log('event', e);
               changeSortType(sType.sortBy);
             }}
           >
@@ -30,15 +29,6 @@ const Sorting = () => {
           </li>
         );
       })}
-      {/* <li className={`sorting__item sorting__item_active`}>
-        <span>Самый дешевый</span>
-      </li>
-      <li className={`sorting__item`}>
-        <span>Самый быстрый</span>
-      </li>
-      <li className={`sorting__item`}>
-        <span>Оптимальный</span>
-      </li> */}
     </ul>
   );
 };

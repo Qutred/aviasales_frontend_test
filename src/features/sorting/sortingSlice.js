@@ -13,11 +13,11 @@ export const sortTypes = [
     name: 'Самый быстрый',
     sortBy: 'fast',
   },
-  {
-    id: 3,
-    name: 'Оптимальный',
-    sortBy: 'optimal',
-  },
+  // {
+  //   id: 3,
+  //   name: 'Оптимальный',
+  //   sortBy: 'optimal',
+  // },
 ];
 
 /* ------------------------------ Initial State ----------------------------- */
