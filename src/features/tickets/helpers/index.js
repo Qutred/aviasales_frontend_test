@@ -36,3 +36,26 @@ export const sortTickets = (tickets, sortType) => {
     return tickets;
   }
 };
+
+export const filterTickets = (tickets, filterTypes) => {
+  let checkedFilters = filterTypes
+    .filter((type) => type.checked)
+    .map((type) => type.id);
+
+  let isActiveAll = checkedFilters.includes(-1);
+  if (isActiveAll) {
+    return tickets;
+  } else {
+    return tickets.filter((ticket) => {
+      const filterAceptable = ticket.segments.filter((segment) => {
+        return checkedFilters.includes(segment.stops.length);
+      });
+
+      if (filterAceptable.length) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+  }
+};

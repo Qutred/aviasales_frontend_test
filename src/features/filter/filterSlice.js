@@ -71,10 +71,7 @@ export const filterSlice = createSlice({
 
 /* -------------------------------- Selectors ------------------------------- */
 
-export const selectFilterTypes = (state) => {
-  console.log(state);
-  return state.filter.filterTypes;
-};
+export const selectFilterTypes = (state) => state.filter.filterTypes;
 
 export const { toggleFilterType } = filterSlice.actions;
 export default filterSlice.reducer;

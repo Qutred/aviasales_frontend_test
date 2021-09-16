@@ -38,3 +38,10 @@ export const getTimeOnFly = (date, second) => {
     'HH:mm'
   )}`;
 };
+
+export const formatPrice = (price) => {
+  return `${price.toLocaleString('ru-RU', {
+    style: 'decimal',
+    currency: 'RUB',
+  })} Р`;
+};

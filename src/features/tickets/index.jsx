@@ -1,5 +1,10 @@
 import React from 'react';
-import { formatTransfer, getBoardingTime, getTimeOnFly } from '../../utils';
+import {
+  formatPrice,
+  formatTransfer,
+  getBoardingTime,
+  getTimeOnFly,
+} from '../../utils';
 import './ticket.scss';
 
 const TicketItem = (props) => {
@@ -7,7 +12,7 @@ const TicketItem = (props) => {
   return (
     <div className={`ticketItem`}>
       <div className={`ticketItem__top`}>
-        <p className={`ticketItem__price`}>{price} Р </p>
+        <p className={`ticketItem__price`}>{formatPrice(price)} </p>
         <img
           src={`https://pics.avs.io/99/36/${carrier}.png`}
           className={`ticketItem__logo`}

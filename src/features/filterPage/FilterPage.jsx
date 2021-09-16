@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import React, { Fragment, useEffect } from 'react';
 import './filter.scss';
 import logo from '../../assets/img/logo.svg';
@@ -7,20 +6,18 @@ import TicketItem from '../tickets';
 import Filter from '../filter';
 import Loader from '../loader';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  getSearchId,
-  getTickets,
-  selectTickets,
-  selectTicketsState,
-} from '../tickets/ticketSlice';
-import { sortTickets } from '../tickets/helpers';
+import { getTickets, selectTicketsState } from '../tickets/ticketSlice';
+import { filterTickets, sortTickets } from '../tickets/helpers';
 import { selectSortType } from '../sorting/sortingSlice';
+import { selectFilterTypes } from '../filter/filterSlice';
 
 const FilterPage = () => {
   const { tickets, isLoading, isError } = useSelector(selectTicketsState);
+  const filterTypes = useSelector(selectFilterTypes);
   const sortBy = useSelector(selectSortType);
   const dispatch = useDispatch();
   const sortedTickets = sortTickets([...tickets], sortBy);
+  const filteredTickets = filterTickets(sortedTickets, filterTypes);
 
   useEffect(() => {
     dispatch(getTickets());
@@ -40,9 +37,14 @@ const FilterPage = () => {
               Что то пошло не так пожалуйста перезагрузите страницу
             </div>
           )}
-          {isLoading && <Loader />}
+          {!isLoading && !isError && !filteredTickets.length && (
+            <div className={`filterContainer__error`}>
+              Ничего подходящего под ваш фильтр не найдено
+            </div>
+          )}
+          {isLoading && !isError && <Loader />}
           {tickets.length > 0
-            ? sortedTickets.map((ticket, index) => {
+            ? filteredTickets.map((ticket, index) => {
                 return <TicketItem key={index} ticketData={ticket} />;
               })
             : null}
