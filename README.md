@@ -1,9 +1,3 @@
-## Запуск и установка проекта
-
-```
-npm install && npm start
-```
-
 # Тестовое задание Aviasales ([frontend](https://aviasales.recruitee.com/o/frontend-developer-js-coffeescript-react%C2%A0redux--aviasalesru))
 
 Основной frontend проект нашей команды — это страница выдачи билетов со множеством фильтров, настроек и, собственно, билетов.
@@ -28,6 +22,12 @@ Figma
 
 ![](search_preview.png?raw=true)
 
-Удачи! Если будут какие-то вопросы, пиши – добавим уточнения в репу.
+## Запуск и установка проекта
 
-P.S.: Картинки авиакомпаний можешь брать с нашего CDN: `//pics.avs.io/99/36/{IATA_CODE_HERE}.png`
+```
+yarn install && yarn start
+```
+
+## Ссылка на интерактивный просмотр
+
+[https://qutred-aviasales-test.vercel.app/ ](https://qutred-aviasales-test.vercel.app/)
