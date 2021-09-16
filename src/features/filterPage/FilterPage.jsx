@@ -21,17 +21,17 @@ const FilterPage = () => {
 
   useEffect(() => {
     dispatch(getTickets());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Fragment>
       <div className={`header`}>
-        <img src={logo} />
+        <img src={logo} alt='logo' />
       </div>
       <div className={`filterContainer`}>
-        <Filter />
+        <Filter filterTypes={filterTypes} />
         <div className={`filterContainer__content content`}>
-          <Sorting />
+          <Sorting sortBy={sortBy} />
           {isError && (
             <div className={`filterContainer__error`}>
               Что то пошло не так пожалуйста перезагрузите страницу

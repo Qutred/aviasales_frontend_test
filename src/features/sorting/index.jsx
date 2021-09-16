@@ -1,12 +1,10 @@
-import { logRoles } from '@testing-library/dom';
 import classNames from 'classnames';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './sorting.scss';
-import { sortTypes, selectSortType, setSortType } from './sortingSlice.js';
+import { sortTypes, setSortType } from './sortingSlice.js';
 
-const Sorting = () => {
-  const sortBy = useSelector(selectSortType);
+const Sorting = React.memo(({ sortBy }) => {
   const dispatch = useDispatch();
 
   const changeSortType = (type) => {
@@ -31,6 +29,6 @@ const Sorting = () => {
       })}
     </ul>
   );
-};
+});
 
 export default Sorting;

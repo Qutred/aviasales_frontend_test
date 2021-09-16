@@ -2,11 +2,10 @@ import React from 'react';
 import classNames from 'classnames';
 import './../../assets/scss/components/_checkbox.scss';
 import './filter.scss';
-import { useDispatch, useSelector } from 'react-redux';
-import { toggleFilterType, selectFilterTypes } from './filterSlice';
+import { useDispatch } from 'react-redux';
+import { toggleFilterType } from './filterSlice';
 
-const Filter = () => {
-  const filterTypes = useSelector(selectFilterTypes);
+const Filter = React.memo(({ filterTypes }) => {
   const dispatch = useDispatch();
 
   const toggleFilterHandle = (id) => {
@@ -37,6 +36,6 @@ const Filter = () => {
       </ul>
     </div>
   );
-};
+});
 
 export default Filter;
